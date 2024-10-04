@@ -1,0 +1,711 @@
+﻿@model PagedList.IPagedList<WebAppYte.DAO.LichKham>
+@using PagedList.Mvc;
+
+@{ ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var u = Session["user"] as WebAppYte.Models.BenhNhan; }
+
+
+<div id="nivoslider" class="slides nivoSlider">
+
+    <div class="nivo-directionNav"><a class="nivo-prevNav">Prev</a><a class="nivo-nextNav">Next</a></div>
+    <div class="nivo-slice" name="0" style="left: 0px; width: 1530px; height: 160px; opacity: 1; overflow: hidden;">
+        <div class="col-sm-12" style="position:absolute; width:1519px; height:auto; display:block !important; top:180px; left:200px;">
+            <nav aria-label="breadcrumbs" class="rank-math-breadcrumb"><p><a href="/Home/Index">TRANG CHỦ</a><span class="separator"> &gt; </span><span class="last">ĐẶT LỊCH KHÁM</span></p></nav>
+        </div>
+
+    </div>
+</div>
+@if (u != null)
+{
+<div>
+    <button class="btn-warning">
+        <b>@Html.ActionLink("Đặt mới", "Create")</b>
+    </button>
+    <button class="btn-default">
+        <a href="@Url.Action("Dangxuly", "LichKham", new { id = u.mabn })">Đang xác nhận</a>
+    </button>
+    <button class="btn-default">
+        <a href="@Url.Action("Daxacnhan", "LichKham", new { id = u.mabn })">Đã xác nhận</a>
+    </button>
+    <button class="btn-default">
+        <a href="@Url.Action("Datuvanxong", "LichKham", new { id = u.mabn })">Đã xong</a>
+    </button>
+
+</div>
+<br />
+<hr />
+<div class="form-horizontal" style=" height: 100%;display: flex;  justify-content: center;">
+
+
+
+
+    @using (Html.BeginForm("ActionPostData", "LichKham", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+    <h4 style="color:red;margin-left:140px;">@ViewBag.Fail</h4>
+ 
+              
+                    <div class="div_booking pb_15" style="width:500px; ">
+            <style>
+                .gia-scheduler__overlay {
+                    z-index: 9999999 !important;
+                }
+            </style>
+            <div class="box_dathen" style="min-height: 567px;">
+                <div class="ta-booking">
+
+                    <div class="ta-frame__header">
+                        <div class="ta-frame__header-title">ĐĂNG KÝ KHÁM BỆNH</div>
+                    </div>
+                    <div class="ta-frame__content">
+                        <!---->
+
+                        <div class="el-form-item">
+                            <label for="vendor" class="el-form-item__label">Chọn địa điểm khám</label>
+                            <div class="el-form-item__content">
+
+
+
+
+                                @foreach (var item in ViewBag.chinhanh)
+                                {
+
+                                    if (item == ViewBag.cn)
+                                    {
+                                        <label role="radio" tabindex="0" class="el-radio" style="width:150px;">
+                                            <span class="el-radio__input">
+                                                <span class="el-radio__inner"></span>
+                                                <input type="radio" aria-hidden="true" tabindex="-1" autocomplete="off" class="el-radio__original" value="@item" id="@item" name="chinhanh" checked="checked" onchange="this.form.submit()">
+                                            </span>
+                                            <span class="el-radio__label"> @item<!----></span>
+                                        </label>}
+                                    else
+                                    {
+                                        <label role="radio" tabindex="0" class="el-radio" style="width:150px;">
+                                            <span class="el-radio__input">
+                                                <span class="el-radio__inner"></span>
+                                                <input type="radio" aria-hidden="true" tabindex="-1" autocomplete="off" class="el-radio__original" value="@item" id="@item" name="chinhanh" onchange="this.form.submit()">
+                                            </span>
+                                            <span class="el-radio__label"> @item<!----></span>
+
+
+                                        </label>}
+                                }
+
+                            </div>
+                        </div>
+                        <label for="vendor" class="el-form-item__label">Chọn loại dịch vụ khám</label>
+
+                        <div class="el-form-item__content">
+
+
+                            @foreach (var item in ViewBag.hinhthuc)
+                            {
+
+                                if (item.Text == ViewBag.ht)
+                                {
+                                    <label role="radio" tabindex="0" class="el-radio" style="width:150px;">
+                                        <span class="el-radio__input">
+                                            <span class="el-radio__inner"></span>
+                                            <input type="radio" aria-hidden="true" tabindex="-1" autocomplete="off" class="el-radio__original" value="@item.Value" id="@item.Value" name="hinhthuc" checked="checked" onchange="this.form.submit()">
+                                        </span>
+                                        <span class="el-radio__label"> @item.Text<!----></span>
+                                    </label>}
+                                else
+                                {
+                                    <label role="radio" tabindex="0" class="el-radio" style="width:150px;">
+                                        <span class="el-radio__input">
+                                            <span class="el-radio__inner"></span>
+                                            <input type="radio" aria-hidden="true" tabindex="-1" autocomplete="off" class="el-radio__original" value="@item.Value" id="@item.Value" name="hinhthuc" onchange="this.form.submit()">
+                                        </span>
+                                        <span class="el-radio__label"> @item.Text<!----></span>
+
+                                    </label>}
+                            }
+
+                        </div>
+                    </div>
+
+
+                    <label for="vendor" class="el-form-item__label" style="margin-left:10px; color:white;"> Vui lòng chọn địa điểm khám &amp; dịch vụ khám trước</label>
+                    <div class="el-form-item">
+                        <div class="el-form-item__content">
+
+
+                            <div data-v-b270d436="" class="gia-select" style="margin-left:15px">
+                                <i data-v-b270d436="" class="gia-select__caret el-select__caret el-input__icon el-icon-arrow-down"></i>
+
+                                <select name="khoa" style="width:470px;" onchange="this.form.submit()">
+                                    <option value="" selected disabled style="color:gray;">Chọn chuyên khoa</option>
+                                    @foreach (var item in ViewBag.khoa)
+                                    {
+                                        if (item == ViewBag.k)
+                                        {
+                                            <option value="@item" selected>@item</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@item"> @item </option>
+                                        }
+                                    }
+                                </select>
+
+                            </div>
+                            <br />
+
+                            <script>
+                                $(document).ready(function () {
+                                    $("input[name='chinhanh']").change(function () {
+                                        $("select[name='khoa']").change(function () {
+                                            var x = document.getElementById("chinhanh").value;
+                                            var y = document.getElementById("khoa").value;
+                                            window.location.href = "/LichKham/Create?chinhanh=" + x + "&khoa=" + y;
+                                        }
+                                                                                                                                                                                                                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                                                                                                                                                                                                        });
+                            </script>
+
+
+                            <div data-v-b270d436="" class="gia-select" style="margin-left:15px">
+                                <i data-v-b270d436="" class="gia-select__caret el-select__caret el-input__icon el-icon-arrow-down"></i>
+
+                                <select name="bacsi" style="width:470px;" onchange="this.form.submit()">
+                                    <option value="" selected disabled style="color:gray;">Chọn bác sĩ</option>
+                                    @foreach (var item in ViewBag.bacsi)
+                                    {
+
+                                        if (item == ViewBag.bs)
+                                        {
+                                            <option value="@item" selected>@item</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@item">@item</option>
+                                        }
+                                    }
+                                </select>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <br />
+                    <script>
+                        $(document).ready(function () {
+
+
+                            $("select[name='bacsi']").change(function () {
+                                $("input[name='hinhthuc']").change(function () {
+
+
+
+                                    var x = document.getElementById("bacsi").value;
+                                    var y = document.getElementById("hinhthuc").value;
+                                    window.location.href = "/LichKham/Create?hinhthuc =" + y + "&bacsi=" + x;
+                                }
+
+                                                                                                                                                       }
+                                                                                                                                                  });
+
+
+                    </script>
+
+
+
+                    <div class="el-form-item">
+                        <!---->
+                        <div class="el-form-item__content">
+                            <div data-v-80145740="" class="gia-scheduler el-input el-input--prefix" style="margin-left:15px">
+                                <div data-v-80145740="" class="gia-scheduler__input el-input__inner">
+                                    <span data-v-80145740="" class="el-input__prefix">
+                                        <i data-v-80145740="" class="el-input__icon bx bx-calendar"></i>
+
+
+                                        <select name="ngaykham" style="width:470px;" onchange="this.form.submit()">
+                                            <option value="" selected disabled style="color:gray;">Chọn ngày khám </option>
+                                            @foreach (var item in ViewBag.ngaykham)
+                                            {
+
+                                                if (item == ViewBag.nk)
+                                                {
+                                                    <option value="@item" selected>@item</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@item">@item</option>
+                                                }
+                                            }
+                                        </select>
+
+                                    </span>
+
+                                </div><!---->
+                            </div><!---->
+                        </div>
+                    </div><!---->
+                    <script>
+                        $(document).ready(function () {
+                            $("select[name='bacsi']").change(function () {
+                                $("input[name='hinhthuc']").change(function () {
+                                    $("input[name='chinhnhanh']").change(function () {
+                                        $("select[name='khoa']").change(function () {
+                                            $("select[name='ngaykham']").change(function () {
+
+                                                var bs = document.getElementById("bacsi").value;
+                                                var ht = document.getElementById("hinhthuc").value;
+                                                var cn = document.getElementById("chinhanh").value;
+                                                var khoa = document.getElementById("khoa").value;
+                                                var nk = document.getElementById("ngaykham").value;
+
+                                                window.location.href = "/LichKham/Create?hinhthuc =" + ht + "&chinhanh=" + cn + "&khoa=" + khoa + "&bacsi=" + bs + "&ngaykham=" + nk;
+                                            }
+
+                                                                                                                                }
+                                                                                                                                }
+                                                                                                                                }
+                                                                                                                                }
+                                                                                                                    });
+                    </script>
+                    <br />
+                    <div class="el-form-item">
+                        <!---->
+                        <div class="el-form-item__content">
+                            <div data-v-80145740="" class="gia-scheduler el-input el-input--prefix" style="margin-left:15px">
+                                <div data-v-80145740="" class="gia-scheduler__input el-input__inner">
+                                    <span data-v-80145740="" class="el-input__prefix">
+                                        <i data-v-80145740="" class="el-input__icon bx bx-calendar"></i>
+
+                                        <select name="cakham" style="width:470px;" onchange="this.form.submit()">
+                                            <option value="" selected disabled style="color:gray;">Chọn ca khám </option>
+                                            @foreach (var item in ViewBag.cakham)
+                                            {
+
+                                                if (item == ViewBag.ca)
+                                                {
+                                                    <option value="@item" selected>@item</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@item">@item</option>
+                                                }
+                                            }
+                                        </select>
+
+                                    </span>
+
+                                </div><!---->
+                            </div><!---->
+                        </div>
+                    </div><!---->
+                </div>
+                <br />
+                <div class="el-form-item is-required">
+                    <label for="note" class="el-form-item__label" style="margin-left:15px; color:white;">Vấn đề sức khỏe cần khám</label>
+                    <div class="el-form-item__content">
+                        <div class="el-textarea" style="width: 100%; color:black; max-width: 500px;">
+                            <textarea name="mota" id="mota" autocomplete="off" rows="4" placeholder="Nhập tình trạng sức khoẻ của bạn, câu hỏi dành cho bác sĩ và các vấn đề sức khỏe cần khám" class="el-textarea__inner" style="min-height: 33px; width:470px; margin-left:15px" onchange="this.form.submit()"></textarea><!---->
+
+                        </div><!---->
+                    </div>
+                </div>
+                <script>
+
+                    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                        $detail = $_POST['mota'];
+
+                    }
+
+                </script>
+                <br />
+               
+                <button name="datlich" type="button" class="el-button expanded el-button--primary" style="background: #1f28af;width: 470px; height:100%;color:white; margin-left:15px;" onchange="this.form.submit()">
+
+                    <a><span>ĐẶT LỊCH KHÁM →</span></a>
+                </button>
+
+                <script>
+                    $(document).ready(function () {
+                        $("select[name='bacsi']").change(function () {
+                            $("input[name='hinhthuc']").change(function () {
+                                $("input[name='chinhnhanh']").change(function () {
+                                    $("select[name='khoa']").change(function () {
+                                        $("select[name='ngaykham']").change(function () {
+                                            $("select[name='cakham']").change(function () {
+                                                $("textarea[name='mota']").change(function () {
+                                                    $("button[name='datlich']").change(function () {
+                                                        var bs = document.getElementById("bacsi").value;
+                                                        var ht = document.getElementById("hinhthuc").value;
+                                                        var cn = document.getElementById("chinhanh").value;
+                                                        var khoa = document.getElementById("khoa").value;
+                                                        var nk = document.getElementById("ngaykham").value;
+                                                        var ck = document.getElementById("cakham").value;
+                                                        window.location.href = "/LichKham/Create?hinhthuc =" + ht + "&chinhanh=" + cn + "&khoa=" + khoa + "&bacsi=" + bs + "&ngaykham=" + nk + "&cakham=" + ck + "&mota=" + mt;
+                                                    }
+                                                                                                    }
+                                                                                                    }
+                                                                                                    }
+                                                                                                    }
+                                                                                                    }
+                                                                                                    }
+                                                                                        }
+                </script>
+
+
+
+
+            </div>
+            <div class="el-loading-mask" style="display: none;">
+                <div class="el-loading-spinner"><svg viewBox="25 25 50 50" class="circular"><circle cx="50" cy="50" r="20" fill="none" class="path"></circle></svg><!----></div>
+            </div>
+            <script>
+                                                                                        jQuery(document).ready(function () {
+                                                        var url = window.location.hash;
+                                                        var cleanhash = url.substring(url.indexOf('#'));
+                                                        cleanhash = cleanhash.replace("#", "");
+                                                        jQuery('<script src="~/Common/js/embed.js?v=1666942251" id="eplus-form-embed" data-source="' + cleanhash + '" data-home="https://tamanhhospital.vn/"  data-form="ta-booking"><\/script>').appendTo(jQuery('.box_dathen'));
+                                                    });</script>
+
+        </div>}
+
+
+</div>
+}
+else
+{
+
+<div class="form-horizontal" style=" height: 100%;display: flex;  justify-content: center;">
+
+
+
+
+    @using (Html.BeginForm("ActionPostData", "LichKham", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="div_booking pb_15" style="width:500px; ">
+            <style>
+                .gia-scheduler__overlay {
+                    z-index: 9999999 !important;
+                }
+            </style>
+            <div class="box_dathen" style="min-height: 567px;">
+                <div class="ta-booking">
+
+                    <div class="ta-frame__header">
+                        <div class="ta-frame__header-title">ĐĂNG KÝ KHÁM BỆNH</div>
+                    </div>
+                    <div class="ta-frame__content">
+                        <!---->
+
+                        <div class="el-form-item">
+                            <label for="vendor" class="el-form-item__label">Chọn địa điểm khám</label>
+                            <div class="el-form-item__content">
+
+
+
+
+                                @foreach (var item in ViewBag.chinhanh)
+                                {
+
+                                    if (item == ViewBag.cn)
+                                    {
+                                        <label role="radio" tabindex="0" class="el-radio" style="width:150px;">
+                                            <span class="el-radio__input">
+                                                <span class="el-radio__inner"></span>
+                                                <input type="radio" aria-hidden="true" tabindex="-1" autocomplete="off" class="el-radio__original" value="@item" id="@item" name="chinhanh" checked="checked" onchange="this.form.submit()">
+                                            </span>
+                                            <span class="el-radio__label"> @item<!----></span>
+                                        </label>}
+                                    else
+                                    {
+                                        <label role="radio" tabindex="0" class="el-radio" style="width:150px;">
+                                            <span class="el-radio__input">
+                                                <span class="el-radio__inner"></span>
+                                                <input type="radio" aria-hidden="true" tabindex="-1" autocomplete="off" class="el-radio__original" value="@item" id="@item" name="chinhanh" onchange="this.form.submit()">
+                                            </span>
+                                            <span class="el-radio__label"> @item<!----></span>
+
+
+                                        </label>}
+                                }
+
+                            </div>
+                        </div>
+                        <label for="vendor" class="el-form-item__label">Chọn loại dịch vụ khám</label>
+
+                        <div class="el-form-item__content">
+
+
+                            @foreach (var item in ViewBag.hinhthuc)
+                            {
+
+                                if (item.Text == ViewBag.ht)
+                                {
+                                    <label role="radio" tabindex="0" class="el-radio" style="width:150px;">
+                                        <span class="el-radio__input">
+                                            <span class="el-radio__inner"></span>
+                                            <input type="radio" aria-hidden="true" tabindex="-1" autocomplete="off" class="el-radio__original" value="@item.Value" id="@item.Value" name="hinhthuc" checked="checked" onchange="this.form.submit()">
+                                        </span>
+                                        <span class="el-radio__label"> @item.Text<!----></span>
+                                    </label>}
+                                else
+                                {
+                                    <label role="radio" tabindex="0" class="el-radio" style="width:150px;">
+                                        <span class="el-radio__input">
+                                            <span class="el-radio__inner"></span>
+                                            <input type="radio" aria-hidden="true" tabindex="-1" autocomplete="off" class="el-radio__original" value="@item.Value" id="@item.Value" name="hinhthuc" onchange="this.form.submit()">
+                                        </span>
+                                        <span class="el-radio__label"> @item.Text<!----></span>
+
+                                    </label>}
+                            }
+
+                        </div>
+                    </div>
+
+
+                    <label for="vendor" class="el-form-item__label" style="margin-left:10px; color:white;"> Vui lòng chọn địa điểm khám &amp; dịch vụ khám trước</label>
+                    <div class="el-form-item">
+                        <div class="el-form-item__content">
+
+
+                            <div data-v-b270d436="" class="gia-select" style="margin-left:15px">
+                                <i data-v-b270d436="" class="gia-select__caret el-select__caret el-input__icon el-icon-arrow-down"></i>
+
+                                <select name="khoa" style="width:470px;" onchange="this.form.submit()">
+                                    <option value="" selected disabled style="color:gray;">Chọn chuyên khoa</option>
+                                    @foreach (var item in ViewBag.khoa)
+                                    {
+                                        if (item == ViewBag.k)
+                                        {
+                                            <option value="@item" selected>@item</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@item"> @item </option>
+                                        }
+                                    }
+                                </select>
+
+                            </div>
+                            <br />
+
+                            <script>
+                                $(document).ready(function () {
+                                    $("input[name='chinhanh']").change(function () {
+                                        $("select[name='khoa']").change(function () {
+                                            var x = document.getElementById("chinhanh").value;
+                                            var y = document.getElementById("khoa").value;
+                                            window.location.href = "/LichKham/Create?chinhanh=" + x + "&khoa=" + y;
+                                        }
+                                                                                                                                                                                                                                                                                                                                                                        }
+
+                                                                                                                                                                                                                                                                                                                                                            });
+                            </script>
+
+
+                            <div data-v-b270d436="" class="gia-select" style="margin-left:15px">
+                                <i data-v-b270d436="" class="gia-select__caret el-select__caret el-input__icon el-icon-arrow-down"></i>
+
+                                <select name="bacsi" style="width:470px;" onchange="this.form.submit()">
+                                    <option value="" selected disabled style="color:gray;">Chọn bác sĩ</option>
+                                    @foreach (var item in ViewBag.bacsi)
+                                    {
+
+                                        if (item == ViewBag.bs)
+                                        {
+                                            <option value="@item" selected>@item</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@item">@item</option>
+                                        }
+                                    }
+                                </select>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <br />
+                    <script>
+                        $(document).ready(function () {
+
+
+                            $("select[name='bacsi']").change(function () {
+                                $("input[name='hinhthuc']").change(function () {
+
+
+
+                                    var x = document.getElementById("bacsi").value;
+                                    var y = document.getElementById("hinhthuc").value;
+                                    window.location.href = "/LichKham/Create?hinhthuc =" + y + "&bacsi=" + x;
+                                }
+
+                                                                                                                                   }
+                                                                                                                              });
+
+
+                    </script>
+
+
+
+                    <div class="el-form-item">
+                        <!---->
+                        <div class="el-form-item__content">
+                            <div data-v-80145740="" class="gia-scheduler el-input el-input--prefix" style="margin-left:15px">
+                                <div data-v-80145740="" class="gia-scheduler__input el-input__inner">
+                                    <span data-v-80145740="" class="el-input__prefix">
+                                        <i data-v-80145740="" class="el-input__icon bx bx-calendar"></i>
+
+                                      
+                                        <select name="ngaykham" style="width:470px;" onchange="this.form.submit()">
+                                                <option value="" selected disabled style="color:gray;">Chọn ngày khám </option>
+                                                @foreach (var item in ViewBag.ngaykham)
+                                                {
+
+                                                    if (item == ViewBag.nk)
+                                                    {
+                                                        <option value="@item" selected>@item</option>
+                                                    }
+                                                    else
+                                                    {
+                                                        <option value="@item">@item</option>
+                                                    }
+                                                }
+                                            </select>
+
+                                    </span>
+
+                                </div><!---->
+                            </div><!---->
+                        </div>
+                    </div><!---->
+                    <script>
+                        $(document).ready(function () {
+                            $("select[name='bacsi']").change(function () {
+                                $("input[name='hinhthuc']").change(function () {
+                                    $("input[name='chinhnhanh']").change(function () {
+                                        $("select[name='khoa']").change(function () {
+                                            $("select[name='ngaykham']").change(function () {
+
+                                                var bs = document.getElementById("bacsi").value;
+                                                var ht = document.getElementById("hinhthuc").value;
+                                                var cn = document.getElementById("chinhanh").value;
+                                                var khoa = document.getElementById("khoa").value;
+                                                var nk = document.getElementById("ngaykham").value;
+
+                                                window.location.href = "/LichKham/Create?hinhthuc =" + ht + "&chinhanh=" + cn + "&khoa=" + khoa + "&bacsi=" + bs + "&ngaykham=" + nk;
+                                            }
+
+                                                                                                            }
+                                                                                                            }
+                                                                                                            }
+                                                                                                            }
+                                                                                                });
+                    </script>
+                    <br />
+                    <div class="el-form-item">
+                        <!---->
+                        <div class="el-form-item__content">
+                            <div data-v-80145740="" class="gia-scheduler el-input el-input--prefix" style="margin-left:15px">
+                                <div data-v-80145740="" class="gia-scheduler__input el-input__inner">
+                                    <span data-v-80145740="" class="el-input__prefix">
+                                        <i data-v-80145740="" class="el-input__icon bx bx-calendar"></i>
+
+                                        <select name="cakham" style="width:470px;" onchange="this.form.submit()">
+                                            <option value="" selected disabled style="color:gray;">Chọn ca khám </option>
+                                            @foreach (var item in ViewBag.cakham)
+                                            {
+
+                                                if (item == ViewBag.ca)
+                                                {
+                                                    <option value="@item" selected>@item</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@item">@item</option>
+                                                }
+                                            }
+                                        </select>
+
+                                    </span>
+
+                                </div><!---->
+                            </div><!---->
+                        </div>
+                    </div><!---->
+                </div>
+                <br />
+                <div class="el-form-item is-required">
+                    <label for="note" class="el-form-item__label" style="margin-left:15px; color:white;">Vấn đề sức khỏe cần khám</label>
+                    <div class="el-form-item__content">
+                        <div class="el-textarea" style="width: 100%; color:black; max-width: 500px;">
+                            <textarea name="mota" id="mota" autocomplete="off" rows="4" placeholder="Nhập tình trạng sức khoẻ của bạn, câu hỏi dành cho bác sĩ và các vấn đề sức khỏe cần khám" class="el-textarea__inner" style="min-height: 33px; width:470px; margin-left:15px" onchange="this.form.submit()"></textarea><!---->
+
+                        </div><!---->
+                    </div>
+                </div>
+                <script>
+
+                    if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                        $detail = $_POST['mota'];
+
+                    }
+
+                </script>
+                <br />
+                <button name="datlich" type="button" class="el-button expanded el-button--primary" style="background: #1f28af;width: 470px; height:100%;color:white; margin-left:15px;" onchange="this.form.submit()">
+
+                    <a><span>ĐẶT LỊCH KHÁM →</span></a>
+                </button>
+
+                <script>
+                    $(document).ready(function () {
+                        $("select[name='bacsi']").change(function () {
+                            $("input[name='hinhthuc']").change(function () {
+                                $("input[name='chinhnhanh']").change(function () {
+                                    $("select[name='khoa']").change(function () {
+                                        $("select[name='ngaykham']").change(function () {
+                                            $("select[name='cakham']").change(function () {
+                                                $("textarea[name='mota']").change(function () {
+                                                    $("button[name='datlich']").change(function () {
+                                                        var bs = document.getElementById("bacsi").value;
+                                                        var ht = document.getElementById("hinhthuc").value;
+                                                        var cn = document.getElementById("chinhanh").value;
+                                                        var khoa = document.getElementById("khoa").value;
+                                                        var nk = document.getElementById("ngaykham").value;
+                                                        var ck = document.getElementById("cakham").value;
+                                                        window.location.href = "/LichKham/Create?hinhthuc =" + ht + "&chinhanh=" + cn + "&khoa=" + khoa + "&bacsi=" + bs + "&ngaykham=" + nk + "&cakham=" + ck + "&mota=" + mt;
+                                                    }
+                                                                                    }
+                                                                                    }
+                                                                                    }
+                                                                                    }
+                                                                                    }
+                                                                                    }
+                                                                        }
+                </script>
+
+
+
+
+            </div>
+            <div class="el-loading-mask" style="display: none;">
+                <div class="el-loading-spinner"><svg viewBox="25 25 50 50" class="circular"><circle cx="50" cy="50" r="20" fill="none" class="path"></circle></svg><!----></div>
+            </div>
+            <script>
+                                                                        jQuery(document).ready(function () {
+                                                            var url = window.location.hash;
+                                                            var cleanhash = url.substring(url.indexOf('#'));
+                                                            cleanhash = cleanhash.replace("#", "");
+                                                            jQuery('<script src="~/Common/js/embed.js?v=1666942251" id="eplus-form-embed" data-source="' + cleanhash + '" data-home="https://tamanhhospital.vn/"  data-form="ta-booking"><\/script>').appendTo(jQuery('.box_dathen'));
+                                                        });</script>
+
+        </div>}
+
+
+</div>
+}
