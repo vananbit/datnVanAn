@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "E:\\Downloads\\WebAppYte-master\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Downloads\\WebAppYte-master\\WebAppYte-master\\WebAppYte\\Scripts\\bootstrap.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebAppYte-master\\WebAppYte\\Scripts\\bootstrap.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Downloads\\WebAppYte-master\\WebAppYte-master\\WebAppYte\\Views\\ChuyenGiaBacSi\\TamAnhHaNoi.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebAppYte-master\\WebAppYte\\Views\\ChuyenGiaBacSi\\TamAnhHaNoi.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Downloads\\WebAppYte-master\\WebAppYte-master\\WebAppYte\\Scripts\\bootstrap.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebAppYte-master\\WebAppYte\\Scripts\\bootstrap.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Downloads\\WebAppYte-master\\WebAppYte-master\\WebAppYte\\Views\\ChuyenGiaBacSi\\DatLichHen.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -70,7 +70,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 16,
+          "SelectedChildIndex": 17,
           "Children": [
             {
               "$type": "Bookmark",
@@ -138,26 +138,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "bootstrap.js",
               "DocumentMoniker": "E:\\Downloads\\WebAppYte-master\\WebAppYte-master\\WebAppYte\\Scripts\\bootstrap.js",
               "RelativeDocumentMoniker": "WebAppYte-master\\WebAppYte\\Scripts\\bootstrap.js",
               "ToolTip": "E:\\Downloads\\WebAppYte-master\\WebAppYte-master\\WebAppYte\\Scripts\\bootstrap.js",
               "RelativeToolTip": "WebAppYte-master\\WebAppYte\\Scripts\\bootstrap.js",
-              "ViewState": "AQIAAFoEAAAAAAAAAAAowAAAAAAAAAAA",
+              "ViewState": "AQIAAGkEAAAAAAAAAAAowHQEAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-10-04T00:43:48.08Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "TamAnhHaNoi.cshtml",
               "DocumentMoniker": "E:\\Downloads\\WebAppYte-master\\WebAppYte-master\\WebAppYte\\Views\\ChuyenGiaBacSi\\TamAnhHaNoi.cshtml",
               "RelativeDocumentMoniker": "WebAppYte-master\\WebAppYte\\Views\\ChuyenGiaBacSi\\TamAnhHaNoi.cshtml",
               "ToolTip": "E:\\Downloads\\WebAppYte-master\\WebAppYte-master\\WebAppYte\\Views\\ChuyenGiaBacSi\\TamAnhHaNoi.cshtml",
               "RelativeToolTip": "WebAppYte-master\\WebAppYte\\Views\\ChuyenGiaBacSi\\TamAnhHaNoi.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-04T00:43:14.604Z",
               "EditorCaption": ""
@@ -172,8 +172,7 @@
               "RelativeToolTip": "WebAppYte-master\\WebAppYte\\Views\\ChuyenGiaBacSi\\DatLichHen.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-04T00:43:11.512Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T00:43:11.512Z"
             },
             {
               "$type": "Document",
@@ -185,8 +184,7 @@
               "RelativeToolTip": "WebAppYte-master\\WebAppYte\\Views\\ChuyenGiaBacSi\\ChuyenGiaBacSi.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-04T00:43:10.389Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T00:43:10.389Z"
             },
             {
               "$type": "Document",
@@ -198,8 +196,7 @@
               "RelativeToolTip": "WebAppYte-master\\WebAppYte\\Views\\Home\\Index.cshtml",
               "ViewState": "AQIAAD8AAAAAAAAAAAAAAAMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-04T00:42:29.123Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T00:42:29.123Z"
             },
             {
               "$type": "Document",
@@ -211,8 +208,7 @@
               "RelativeToolTip": "WebAppYte-master\\WebAppYte\\Views\\Home\\Trangchu.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-04T00:42:06.974Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T00:42:06.974Z"
             },
             {
               "$type": "Document",
@@ -224,8 +220,7 @@
               "RelativeToolTip": "WebAppYte-master\\WebAppYte\\Views\\Home\\Dangnhap.cshtml",
               "ViewState": "AQIAACoAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-04T00:42:05.369Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T00:42:05.369Z"
             },
             {
               "$type": "Document",
@@ -237,8 +232,7 @@
               "RelativeToolTip": "WebAppYte-master\\WebAppYte\\Views\\Home\\Dangky.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-04T00:42:03.449Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T00:42:03.449Z"
             },
             {
               "$type": "Document",
@@ -250,8 +244,7 @@
               "RelativeToolTip": "WebAppYte-master\\WebAppYte\\Views\\Lichkham\\NhapTTDK.cshtml",
               "ViewState": "AQIAACcAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-04T00:41:37.613Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T00:41:37.613Z"
             },
             {
               "$type": "Document",
@@ -263,8 +256,7 @@
               "RelativeToolTip": "WebAppYte-master\\WebAppYte\\Views\\Hoidap\\Cauhoichoxuly.cshtml",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-04T00:40:08.141Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T00:40:08.141Z"
             },
             {
               "$type": "Document",
@@ -276,8 +268,7 @@
               "RelativeToolTip": "WebAppYte-master\\WebAppYte\\Models\\BenhAn.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T00:39:51.618Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T00:39:51.618Z"
             },
             {
               "$type": "Document",
@@ -289,8 +280,7 @@
               "RelativeToolTip": "WebAppYte-master\\WebAppYte\\Controllers\\BacsiController.cs",
               "ViewState": "AQIAAC0AAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T00:39:18.274Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T00:39:18.274Z"
             },
             {
               "$type": "Document",
@@ -302,8 +292,7 @@
               "RelativeToolTip": "WebAppYte-master\\WebAppYte\\DAO\\ListHoiDap.cs",
               "ViewState": "AQIAACQAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T00:39:12.538Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T00:39:12.538Z"
             },
             {
               "$type": "Document",
@@ -315,8 +304,7 @@
               "RelativeToolTip": "WebAppYte-master\\WebAppYte\\DAO\\LichKham.cs",
               "ViewState": "AQIAAGYAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T00:38:39.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-04T00:38:39.778Z"
             },
             {
               "$type": "Document",
@@ -328,8 +316,7 @@
               "RelativeToolTip": "WebAppYte-master\\WebAppYte\\WebAppYte.csproj.user",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003464|",
-              "WhenOpened": "2024-10-02T02:59:00.574Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-02T02:59:00.574Z"
             }
           ]
         }

@@ -3,8 +3,11 @@
     "",
     "\\WebAppYte-master",
     "\\WebAppYte-master\\WebAppYte",
-    "\\WebAppYte-master\\WebAppYte\\Scripts"
+    "\\WebAppYte-master\\WebAppYte\\Scripts",
+    "\\WebAppYte-master\\WebAppYte\\Scripts\\lib",
+    "\\WebAppYte-master\\WebAppYte\\Views",
+    "\\WebAppYte-master\\WebAppYte\\Views\\ChuyenGiaBacSi"
   ],
-  "SelectedNode": "\\WebAppYte-master\\WebAppYte\\Scripts\\bootstrap.js",
+  "SelectedNode": "\\WebAppYte-master\\WebAppYte\\Views\\ChuyenGiaBacSi\\TamAnhHaNoi.cshtml",
   "PreviewInSolutionExplorer": false
 }
